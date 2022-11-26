@@ -3,7 +3,7 @@
         <div class="row">
 
             <div class="col-3 pt-5" v-for="item in items" :key="item.id">
-                <div class="item" v-on:click="addItem(item)">
+                <div class="item" v-on:click="route(item.id)">
                     <div class="item-img">
                         <img :src="require(`../assets/`+item.img+`.jpg`)" class="img-fluid rou shadow-5">
                     </div>
@@ -84,8 +84,8 @@ export default {
         }
     },
     methods: {
-        addItem(data) {
-            this.$store.dispatch('addItem', data);
+        route(id) {
+            this.$router.push('/product/'+id)
         }
     }
 }

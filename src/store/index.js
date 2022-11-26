@@ -28,7 +28,7 @@ export default createStore({
             if(res.count != 1){
                 res.count--;
             }
-        }
+        },
     },
     actions: {
         addItem({commit}, data){
@@ -47,6 +47,9 @@ export default createStore({
     getters: {
         getLenght(state){
             return state.cart.length
+        },
+        getItem: (state) => (id) => {
+            return state.cart.find(product => product.id == id);
         }
     }
 })
